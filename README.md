@@ -105,3 +105,12 @@ docker exec -it hshekhar12c \
     grants=Y constraints=N log=/tmp/export_config_data_only.log
 docker exec hshekhar12c rm /tmp/export_config_data_only.dmp
 ```
+
+
+##Clean up
+```bash
+docker cp customization/sql/cleanup.sql hshekhar12c:/tmp
+docker exec -u 0 -it hshekhar12c chown oracle:dba /tmp/cleanup
+docker exec -it hshekhar12c sqlplus / as sysdba @/tmp/cleanup.sql
+docker exec -it hshekhar12c rm /tmp/cleanup.sql
+```
