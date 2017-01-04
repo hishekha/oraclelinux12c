@@ -1,6 +1,6 @@
 FROM oraclelinux:latest
 
-MAINTAINER hshekhar <himanshu.shkhar.in@gmail.com>
+MAINTAINER hshekhar <himanshu.shekhar.in@gmail.com>
 
 ENV ORACLE_SID=RBMDB
 ENV ORACLE_PDB=RBMPDB
