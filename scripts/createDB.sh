@@ -52,7 +52,6 @@ echo "LISTENER =
 
 " > $ORACLE_HOME/network/admin/listener.ora
 
-echo "##########Default password : '$ORACLE_PWD'#########"
 # Start LISTENER and run DBCA
 lsnrctl start &&
 dbca -silent -characterSet AL32UTF8 -responseFile $ORACLE_BASE/dbca.rsp ||

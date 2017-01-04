@@ -100,7 +100,8 @@ trap _term SIGTERM
 trap _kill SIGKILL
 
 # Auto generate ORACLE PWD
-ORACLE_PWD="`openssl rand -base64 8`1"
+#ORACLE_PWD="`openssl rand -base64 8`1"
+ORACLE_PWD=0racle$
 echo "ORACLE AUTO GENERATED PASSWORD FOR SYS, SYSTEM AND PDBAMIN: $ORACLE_PWD";
 
 # Default for ORACLE SID
@@ -139,13 +140,13 @@ else
 fi;
 
 
-if [ -f $ORACLE_BASE/$RBM_CUSTOM_SQL_FILE ]; then
-    echo "Executing custom sql";
-    sqlplus sys/$ORACLE_PWD@$ORACLE_PDB as sysdba @$ORACLE_BASE/$RBM_CUSTOM_SQL_FILE;
-    if [ -f $ORACLE_BASE/$RBM_DUMP_FILE ]; then
-        $ORACLE_HOME/bin/imp \'system/$ORACLE_PWD@$ORACLE_PDB\' fromuser=geneva_admin touser=geneva_admin file=$ORACLE_BASE/$RBM_DUMP_FILE grants=Y constraints=N log=$ORACLE_BASE/genevalog.log
-    fi;
-fi;
+#if [ -f $ORACLE_BASE/$RBM_CUSTOM_SQL_FILE ]; then
+#    echo "Executing custom sql";
+#    sqlplus sys / as sysdba @$ORACLE_BASE/$RBM_CUSTOM_SQL_FILE;
+#    if [ -f $ORACLE_BASE/$RBM_DUMP_FILE ]; then
+#        $ORACLE_HOME/bin/imp \'system/$ORACLE_PWD@$ORACLE_PDB\' fromuser=geneva_admin touser=geneva_admin file=$ORACLE_BASE/$RBM_DUMP_FILE grants=Y constraints=N log=$ORACLE_BASE/genevalog.log
+#    fi;
+#fi;
 
 echo "#########################"
 echo "DATABASE IS READY TO USE!"

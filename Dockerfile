@@ -1,4 +1,4 @@
-FROM oraclelinux:7
+FROM oraclelinux:latest
 
 MAINTAINER hshekhar <himanshu.shkhar.in@gmail.com>
 
@@ -27,8 +27,8 @@ ENV INSTALL_DIR=$ORACLE_BASE/install \
     LD_LIBRARY_PATH=$ORACLE_HOME/lib:/usr/lib \
     CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
 
-COPY perl-5.24.0.tar.gz $INSTALL_FILE $INSTALL_RSP $PERL_INSTALL_FILE $SETUP_LINUX $INSTALL_DB_BINARIES $INSTALL_DIR/
-COPY $RBM_DUMP_FILE $RBM_CUSTOM_SQL_FILE $RUN_FILE $START_FILE $CREATE_DB_FILE $CONFIG_RSP $PWD_FILE $ORACLE_BASE/
+COPY installers/perl-5.24.0.tar.gz installers/$INSTALL_FILE installers/$INSTALL_RSP scripts/$PERL_INSTALL_FILE scripts/$SETUP_LINUX scripts/$INSTALL_DB_BINARIES $INSTALL_DIR/
+COPY scripts/$RUN_FILE scripts/$START_FILE scripts/$CREATE_DB_FILE installers/$CONFIG_RSP scripts/$PWD_FILE $ORACLE_BASE/
 
 RUN chmod ug+x $INSTALL_DIR/$SETUP_LINUX && \
     sync && \
